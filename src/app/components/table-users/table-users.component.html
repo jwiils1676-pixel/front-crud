@@ -1,0 +1,35 @@
+@if (lookTableBoolean()() && dat()()!.length > 0 && buttonsService.msgDeleteConfirmation() == false) {
+ 
+
+
+  <div class="text-white text-center p-4 text-2xl">Lista de usuarios</div>
+  <div class=" overflow-y-auto max-h-150 text-white bg-mist-900 rounded grid"  [ngClass]="buttonsService.changetoAddusersOrPutUsers() ? 'grid-cols-[repeat(5,auto)]' : 'grid-cols-[repeat(6,auto)]' ">
+
+
+
+    <span class="border bg-green-900 p-2 text-[21px] font-bold text-center">id</span>
+    <span class="border bg-green-900 p-2 text-[21px] font-bold">nombre</span>
+    <span class="border bg-green-900 p-2 text-[21px] font-bold text-center">apellido</span>
+    <span class="border bg-green-900 p-2 text-[21px] font-bold text-center">edad</span>
+    <span class="border bg-green-900 p-2 text-[21px] font-bold text-center">numero</span>
+
+
+     @if(buttonsService.changetoAddusersOrPutUsers() == false) {
+          <span class="border bg-green-900 p-2  text-[21px] font-bold">eliminar</span>
+      }
+
+    @for (item of dat()(); track $index) {
+      <p class="border p-2 text-2xl">{{ item.id }}</p>
+      <p class="border p-2 text-2xl">{{ item.nombre }}</p>
+      <p class="border p-2 text-2xl">{{ item.apellido }}</p>
+      <p class="border p-2 text-2xl">{{ item.edad }}</p>
+      <p class="border p-2 text-2xl">{{ item.numero }}</p>
+
+      @if(buttonsService.changetoAddusersOrPutUsers() == false) {
+              <button class="text-2xl font-bold hover:opacity-50 transition border p-1 bg-red-600" (click)="peticionDeleteById(item.id)">X</button>
+
+
+      }
+    }
+  </div>
+}

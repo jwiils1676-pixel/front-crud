@@ -1,0 +1,51 @@
+<div class="grid gap-x-4 grid-cols-2">
+  @if (usersData()().length > 0) {
+    @if (!lookTableBoolean()()) {
+      <button
+        type="button"
+        (click)="looktable()"
+        class="p-3 hover:opacity-40 transition rounded bg-green-600"
+      >
+        Ver usuarios
+      </button>
+    } @else {
+      <button 
+        type="button"
+        (click)="looktable()"
+        class="p-3 hover:opacity-40 transition rounded bg-green-400"
+      >
+        Ocultar usuarios
+      </button>
+    }
+
+   
+
+     @if (!buttonsService.changetoAddusersOrPutUsers()) {
+
+      <button type="button"
+      class="p-3 hover:opacity-40 transition rounded bg-green-400"
+      (click)="updateSignalMod(true)"
+    >
+      Ir a modificar usuarios
+    </button>
+
+    }
+    
+    
+    @if (buttonsService.changetoAddusersOrPutUsers()) {
+      
+      <button type="button"
+      class="p-3 hover:opacity-40 transition rounded bg-green-600"
+      (click)="updateSignalMod(false)"
+    >
+      ir a agregar usuarios
+    </button> 
+
+
+    }
+
+    
+
+  }
+  
+</div>

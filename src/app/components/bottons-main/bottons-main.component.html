@@ -1,0 +1,54 @@
+<div class="grid items-center    ">
+
+  @if (!msgDeleteConfirmation()) {
+    <div class="grid grid-rows-1 justify-items-center gap-y-6">
+      <div class="w-fit items-center grid gap-x-2 grid-cols-2">
+        <button type="submit" class="rounded hover:opacity-40 p-3 transition bg-green-600">
+          Agregar
+        </button>
+
+        <button
+          [disabled]="usersData()().length < 1"
+          [class.opacity-40]="usersData()().length < 1"
+          type="button"
+          (click)="deleteUsers(false)"
+          class="delete p-3 rounded bg-red-500 hover:opacity-40 transition text-white"
+        >
+          Eliminar todo
+        </button>
+      </div>
+
+      <div class="">
+        <!-- botones mostrar y ocultar tabla -->
+        <app-buttons-look-disguise [lookTableBoolean]="lookTableBoo()" />
+        <!--  -->
+      </div>
+    </div>
+  }
+
+  @if (msgDeleteConfirmation()) {
+    <div class=" border ">
+      <h2 class="text-2xl col-span-2 text-center pb-10 bottom-20 text-white">
+        Esto eliminara todos los usuarios Realmente deseas continuar?
+      </h2>
+
+      <div class="grid grid-cols-2 gap-4">
+        <button
+          type="button"
+          (click)="deleteUsers(true)"
+          class="p-3 col-start-1 rounded bg-red-600 hover:opacity-40 transition text-white"
+        >
+          Confirmas eliminacion
+        </button>
+
+        <button
+          type="button"
+          (click)="cancelar()"
+          class="p-3 col-start-2 rounded hover:opacity-40 transition bg-red-600 text-white"
+        >
+          cancelar
+        </button>
+      </div>
+    </div>
+  }
+</div>

@@ -1,0 +1,43 @@
+ 
+ <style>
+    @keyframes blinkCursor {
+      50% { border-right-color: transparent; }
+    }
+    @keyframes typeAndDelete {
+      0%, 10%   { width: 0; }
+      45%, 55%  { width: 10em; }
+      90%, 100% { width: 0; }
+    }
+    .animate-type-delete {
+      animation:
+        typeAndDelete 4s steps(25) infinite,
+        blinkCursor 0.5s step-end infinite alternate;
+    }
+  </style>
+ 
+
+ @if (animation()) {
+ <!-- terminal-loader -->
+  <div class="border border-[#333] bg-[#1a1a1a] text-[#0f0] font-mono text-[1em] px-4 py-6 w-60 shadow-[0_4px_8px_rgba(0,0,0,0.2)] rounded relative overflow-hidden box-border">
+
+    <!-- terminal-header -->
+    <div class="absolute top-0 left-0 right-0 h-6 bg-[#333] rounded-tl rounded-tr px-[0.4em] box-border flex items-center justify-between">
+
+      <!-- terminal-title -->
+      <span class="text-[#eee] leading-6 text-sm">Welcome Console</span>
+
+      <!-- terminal-controls -->
+      <div class="flex items-center gap-[0.4em]">
+       <p class="text-white"><></p>
+      </div>
+
+    </div>
+
+    <!-- text -->
+    <span class="inline-block whitespace-nowrap overflow-hidden border-r-[0.2em] border-green-500 mt-6 animate-type-delete">
+      Bienvenido humano
+    </span>
+
+  </div>
+
+}
