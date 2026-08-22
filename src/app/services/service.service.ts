@@ -19,7 +19,7 @@ export class ServiceService {
 
     return this.http
       .post(
-        'https://backendportafolio-oyds.onrender.com/addUsers',
+        'https://crud-backend-xwqd.onrender.com/addUsers',
         jsonData,
 
         {
@@ -35,23 +35,23 @@ export class ServiceService {
     this.usersDataMapping.set({nombre: "Cargando"})
     const jsonData = JSON.stringify(body[0]);
 
-    return this.http.put<putNext>('https://backendportafolio-oyds.onrender.com/' + id, jsonData,{headers: { 'content-type': 'application/json' },},).pipe()
+    return this.http.put<putNext>('https://crud-backend-xwqd.onrender.com/' + id, jsonData,{headers: { 'content-type': 'application/json' },},).pipe()
   }
 
 
 
   getUsers() {
-    return this.http.get<[]>('https://backendportafolio-oyds.onrender.com/callUsers');
+    return this.http.get<[]>('https://crud-backend-xwqd.onrender.com/callUsers');
   }
 
   deleteUsers() {
-    return this.http.delete('https://backendportafolio-oyds.onrender.com/deleteAllUsers');
+    return this.http.delete('https://crud-backend-xwqd.onrender.com/deleteAllUsers');
   }
 
 
   deleteUsersById(id: number) {
 
-    return this.http.delete('https://backendportafolio-oyds.onrender.com/deleteById/' + id)
+    return this.http.delete('https://crud-backend-xwqd.onrender.com/deleteById/' + id)
 
   }
 
