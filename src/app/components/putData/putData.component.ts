@@ -50,6 +50,7 @@ export class PutDataComponent {
   usersDataMapping = this.serviceMain.usersDataMapping;
 
   condition = signal(false);
+
   sendData() {
     if (this.setTime) {
       clearTimeout(this.setTime);
@@ -65,14 +66,14 @@ export class PutDataComponent {
       },
     ];
 
-    this.usersDataMapping.set({ nombre: 'Cargando...' });
+    this.usersDataMapping.set({ nombre: 'Vamos a modificar los datos, Se paciente...' });
 
 
     this.serviceMain.putData(datosPut, datosPut[0].id!).subscribe({
       next: (data: putNext) => {
         this.condition.set(true);
 
-        this.usersDataMapping.set({ nombre: 'Datos guardados correctamente' });
+        this.usersDataMapping.set({ nombre: 'Datos modificados correctamente' });
 
         const setTime = setTimeout(() => {
           this.usersDataMapping.set({});
