@@ -1,12 +1,18 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {  error, putError, putNext, usersInterface } from '../interfaces/interface-users';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiceService {
   http = inject(HttpClient);
+
+
+
+
+
 
   constructor() {}
     animation = signal(true)
@@ -35,26 +41,26 @@ export class ServiceService {
     this.usersDataMapping.set({nombre: "Cargando"})
     const jsonData = JSON.stringify(body[0]);
 
-    return this.http.put<putNext>('https://crud-backend-xwqd.onrender.com/' + id, jsonData,{headers: { 'content-type': 'application/json' },},).pipe()
+    return this.http.put<putNext>(environment.putDataAPI + id, jsonData,{headers: { 'content-type': 'application/json' },},).pipe()
   }
 
 
 
   getUsers() {
-    return this.http.get<[]>('https://crud-backend-xwqd.onrender.com/callUsers');
+    return this.http.get<[]>( environment.getDataAPI +'callUsers');
   }
 
   deleteUsers() {
-    return this.http.delete('https://crud-backend-xwqd.onrender.com/deleteAllUsers');
+    return this.http.delete(environment.deleteDataAPI + 'deleteAllUsers');
   }
 
 
   deleteUsersById(id: number) {
 
-    return this.http.delete('https://crud-backend-xwqd.onrender.com/deleteById/' + id)
+    return this.http.delete(environment.deleteDataAPI + 'deleteById/' + id)
 
   }
 
-
+ 
   updateSignalMod = signal(false)
 }

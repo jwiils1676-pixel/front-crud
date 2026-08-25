@@ -4,7 +4,7 @@
       <button
         type="button"
         (click)="looktable()"
-        class="p-3 hover:opacity-40 transition rounded bg-green-600"
+        class="p-3 hover:opacity-40 transition rounded bg-white tex"
       >
         Ver usuarios
       </button>
@@ -12,7 +12,7 @@
       <button 
         type="button"
         (click)="looktable()"
-        class="p-3 hover:opacity-40 transition rounded bg-green-400"
+        class="p-3 hover:opacity-40 transition rounded bg-white"
       >
         Ocultar usuarios
       </button>
@@ -23,7 +23,7 @@
      @if (!buttonsService.changetoAddusersOrPutUsers()) {
 
       <button type="button"
-      class="p-3 hover:opacity-40 transition rounded bg-green-400"
+      class="p-3 hover:opacity-40 transition rounded bg-white"
       (click)="updateSignalMod(true)"
     >
       Ir a modificar usuarios
@@ -35,7 +35,7 @@
     @if (buttonsService.changetoAddusersOrPutUsers()) {
       
       <button type="button"
-      class="p-3 hover:opacity-40 transition rounded bg-green-600"
+      class="p-3 hover:opacity-40 transition rounded bg-white"
       (click)="updateSignalMod(false)"
     >
       ir a agregar usuarios

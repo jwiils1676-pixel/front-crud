@@ -3,7 +3,7 @@
   @if (!msgDeleteConfirmation()) {
     <div class="grid grid-rows-1 justify-items-center gap-y-6">
       <div class="w-fit items-center grid gap-x-2 grid-cols-2">
-        <button type="submit" class="rounded hover:opacity-40 p-3 transition bg-green-600">
+        <button type="submit" class="rounded hover:opacity-40 bg-green-700 p-3 transition text-white font-bold border border-white">
           Agregar
         </button>
 
@@ -12,7 +12,7 @@
           [class.opacity-40]="usersData()().length < 1"
           type="button"
           (click)="deleteUsers(false)"
-          class="delete p-3 rounded bg-red-500 hover:opacity-40 transition text-white"
+          class="delete p-3 rounded bg-white text-black hover:opacity-40 transition "
         >
           Eliminar todo
         </button>
