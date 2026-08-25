@@ -101,6 +101,11 @@ saveMesage = signal("");
         },
         error: () => {
                 this.saveMesage.set("ocurrio un error y no se pudo guardar")
+                
+                  setTimeout(()=> {
+                    this.saveMesage.set("")
+                  },3000)
+
 
 
         }
