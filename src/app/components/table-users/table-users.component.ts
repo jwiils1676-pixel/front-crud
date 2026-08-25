@@ -12,18 +12,44 @@ import { NgClass } from '@angular/common';
 })
 export class TableUsersComponent {
 
-
+deleteMessage = signal("")
 
 peticionDeleteById(id: number) {
 
   if(this.dat()().length == 1) {
     this.buttonsService.lookTableBooleanAddUsers.set(false)
+
+
   }
+
+  this.deleteMessage.set("Eliminando el usuario id: " + id + ", se paciente")
 
   this.service.deleteUsersById(id).subscribe({
 
-    next: ()=> this.service.getUsers().subscribe((dat)=> this.buttonsService.usersData.set(dat)),
-    error: () => {}
+    next: ()=> {
+     
+      this.service.getUsers().subscribe((dat)=> this.buttonsService.usersData.set(dat))
+   
+      this.deleteMessage.set("El usuario ha sido eliminado con exito")
+
+      setTimeout(() => {
+        this.deleteMessage.set("")
+        
+      }, 3000);
+    },
+
+   
+   
+    error: () => {
+
+      this.deleteMessage.set("Ha ocurrido un error y no se ha eliminado el usuario, intenta de nuevo o mas tarde")
+   
+
+      setTimeout(() => {
+        this.deleteMessage.set("")
+        
+      }, 3000);
+    }
   }
 
   )

@@ -68,8 +68,10 @@ export class AddusersComponent {
   @ViewChild('delete') deleteElementButton!: ElementRef;
 
   datt = this.service.saveData;
+saveMesage = signal("");
 
   sendData() {
+
     this.datos.markAllAsTouched();
 
     if (this.datos.invalid) {
@@ -82,9 +84,27 @@ export class AddusersComponent {
         edad: Number(this.datos.value.edad!),
         numero: this.datos.value.numero!,
       };
+          this.saveMesage.set("Guardando usuario, se paciente")
 
-      this.mySub = this.service.saveData(compatibleDataToSend).subscribe(() => {
-        this.getUsers();
+
+      this.mySub = this.service.saveData(compatibleDataToSend).subscribe({
+
+
+        next: ()=> {
+                  this.getUsers();
+                  this.saveMesage.set("Usuario guardado con exito")
+
+                  setTimeout(()=> {
+                    this.saveMesage.set("")
+                  },3000)
+
+        },
+        error: () => {
+                this.saveMesage.set("ocurrio un error y no se pudo guardar")
+
+
+        }
+
       });
     }
   }

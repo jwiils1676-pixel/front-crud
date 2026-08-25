@@ -27,10 +27,9 @@ export class ServiceService {
       .post(
         environment.putDataAPI + 'addUsers',
         jsonData,
-
         {
           headers: { 'content-type': 'application/json' },
-        },)
+        })
   }
 
   
