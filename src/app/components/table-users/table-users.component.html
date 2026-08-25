@@ -3,30 +3,30 @@
 
 
   <div class="text-white text-center p-4 text-2xl">Lista de usuarios</div>
-  <div class=" overflow-y-auto bg-white text-black max-h-150   rounded grid"  [ngClass]="buttonsService.changetoAddusersOrPutUsers() ? 'grid-cols-[repeat(5,auto)]' : 'grid-cols-[repeat(6,auto)]' ">
+  <div class=" overflow-y-auto  text-black max-h-150   rounded grid"  [ngClass]="buttonsService.changetoAddusersOrPutUsers() ? 'grid-cols-[repeat(5,auto)]' : 'grid-cols-[repeat(6,auto)]' ">
 
 
 
-    <span class="border bg-gray-300 p-2 text-[21px] font-bold text-center">ID</span>
-    <span class="border bg-gray-300 p-2 text-[21px] font-bold">NOMBRE</span>
-    <span class="border bg-gray-300 p-2 text-[21px] font-bold text-center">APELLIDO</span>
-    <span class="border bg-gray-300 p-2 text-[21px] font-bold text-center">EDAD</span>
-    <span class="border bg-gray-300 p-2 text-[21px] font-bold text-center">NUMERO TEL</span>
+    <span class="border border-white   bg-gray-300 p-2 text-[21px] font-bold text-center">ID</span>
+    <span class="border bg-gray-300 border-white p-2 text-[21px] font-bold">NOMBRE</span>
+    <span class="border bg-gray-300 border-white p-2 text-[21px] font-bold text-center">APELLIDO</span>
+    <span class="border bg-gray-300 border-white p-2 text-[21px] font-bold text-center">EDAD</span>
+    <span class="border bg-gray-300 border-white p-2 text-[21px] font-bold text-center">NUMERO TEL</span>
 
 
      @if(buttonsService.changetoAddusersOrPutUsers() == false) {
-          <span class="border bg-gray-300 p-2  text-[21px] font-bold"> X</span>
+          <span class="border border-white bg-gray-300 p-2  text-[21px] font-bold"> X</span>
       }
 
     @for (item of dat()(); track $index) {
-      <p class="border p-2 text-2xl">{{ item.id }}</p>
-      <p class="border p-2 text-2xl">{{ item.nombre }}</p>
-      <p class="border p-2 text-2xl">{{ item.apellido }}</p>
-      <p class="border p-2 text-2xl">{{ item.edad }}</p>
-      <p class="border p-2 text-2xl">{{ item.numero }}</p>
+      <p class="border text-white border-white p-2 text-2xl">{{ item.id }}</p>
+      <p class="border border-white text-white p-2 text-2xl">{{ item.nombre }}</p>
+      <p class="border border-white text-white p-2 text-2xl">{{ item.apellido }}</p>
+      <p class="border border-white text-white p-2 text-2xl">{{ item.edad }}</p>
+      <p class="border border-white text-white p-2 text-2xl">{{ item.numero }}</p>
 
       @if(buttonsService.changetoAddusersOrPutUsers() == false) {
-              <button class="text-2xl font-bold hover:opacity-50 transition border border-black text-white p-1 bg-red-600" (click)="peticionDeleteById(item.id)">X</button>
+              <button class="text-2xl font-bold hover:opacity-50 transition border border-white text-white p-1 bg-red-600" (click)="peticionDeleteById(item.id)">X</button>
 
 
 
